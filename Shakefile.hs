@@ -13,6 +13,7 @@ main = shakeArgs shakeOptions $ do
         files <- getDirectoryFiles "." ["//*.tex","//*.m"]
         need files
         command_  [] "pdflatex" ["-halt-on-error", dropExtension out ]
+        command_  [] "pdflatex" ["-halt-on-error", dropExtension out ]
 
     phony "clean" $ do 
     liftIO $ removeFiles "." $ map ("poster."++) (words "log toc aux blg bbl snm out nav") 
