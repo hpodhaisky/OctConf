@@ -10,11 +10,17 @@ main = shakeArgs shakeOptions $ do
     want ["poster.pdf"]
 
     "poster.pdf" %> \out -> do
-        files <- getDirectoryFiles "." ["//*.tex","//*.m"]
-        need files
-        command_  [] "pdflatex" ["-halt-on-error", dropExtension out ]
-        command_  [] "pdflatex" ["-halt-on-error", dropExtension out ]
+       files <- getDirectoryFiles "." ["//*.tex","//*.m"]
+       need files
+       command_  [] "pdflatex" ["-halt-on-error", dropExtension out ]
+       command_  [] "pdflatex" ["-halt-on-error", dropExtension out ]
 
     phony "clean" $ do 
-    liftIO $ removeFiles "." $ map ("poster."++) (words "log toc aux blg bbl snm out nav") 
+       liftIO $ removeFiles "."
+          $ (["tiled.pdf"] ++ )
+          $  map ("poster."++) (words "log toc aux blg bbl snm out nav") 
+
+    "tiled.pdf" %> \out -> do 
+       need ["poster.pdf"] 
+       command_ [] "pdfposter" (words "-O 2 -S -p a2 poster.pdf tiled.pdf")
 

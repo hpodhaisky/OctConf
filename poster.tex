@@ -1,6 +1,3 @@
-% Als A2 auf 4 A4-Blättern ausdrucken mit: 
-% pdfposter -O 2 -S -p a2 poster.pdf out.pdf
-%
 \documentclass{beamer}
 \usepackage[orientation=landscape,size=a0,scale=1.0,debug]{beamerposter}
 %\documentclass{article}
@@ -15,7 +12,6 @@
 \def\sect#1{\textbf{\color{blue} #1}}
 \def\subsect#1{\underline{\color{blue} #1}}
 
-
 \graphicspath{{./img//}}
 
 \setbeamertemplate{navigation symbols}{}
@@ -23,7 +19,7 @@
 \setbeamertemplate{headline}
 { 
 	\vskip.5cm
-	\parbox[bottom][][c]{\paperwidth} % ich gebe zu: Das ist alles ein bisschen zurechtgeschustert...
+	\parbox[bottom][][c]{\paperwidth} 
 	{\centering
 	\includegraphics[height=6cm]{Octconf2015Logo.png}
 	\hskip2cm
@@ -45,10 +41,8 @@
 	} % end parbox
 } % end setbeamertemplate headline
 
-
-
 \title{Examples for teaching mathematical programming 
-   using \emph{Octave}}
+       using \emph{Octave}}
 \author{Alf Gerisch (TU Darmstadt) and 
    Markus Köbis (Uni Halle) and Helmut Podhaisky (Uni Halle)}
 %\date{22 September 2015}
@@ -56,7 +50,6 @@
 %\maketitle
 
 \begin{document}
-
 
 \begin{frame}[t]{}
 \begin{multicols}{5}
@@ -71,8 +64,7 @@ write correct code is easier with discrete problems where rounding errors
 cannot conceal bugs.  The lack of certain data structures (lists with
 $\mathcal{O}(1)$ append, queues, \dots) in Octave leads to uglier code or wrong
 asymptotic complexity for some problems (shortest paths, minimal spanning
-trees, \dots). You can download this poster from
-\url{https://github.com/hpodhaisky/OctConf}.
+trees, \dots). Visit \url{https://github.com/hpodhaisky/OctConf} for download.
 
 \medskip 
 
@@ -139,7 +131,6 @@ for integration.}
 % LINDENMAYERS L-SYSTEMS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \sect{Lindenmayer's L-systems}
-
 
 \begin{figure}
 \VerbatimInput[frame=single, fontsize=\small, label=lsystem.m]{lsystem.m}
@@ -245,14 +236,12 @@ $b=[1,\dots,1]^\top$ which is solved by backtracking.}
 \caption{Calculating the average face from the portraits in the database and `eigenfaces'}
 \end{figure}
 
-
 \begin{figure}
 \includegraphics[height=0.93\hsize]{KloseGuess.png} 
 \caption{Best approximation of a picture not in the database and guesses based
          on eigenface estimation
         }
 \end{figure}
-
 
 \medskip
 
@@ -273,9 +262,6 @@ $b=[1,\dots,1]^\top$ which is solved by backtracking.}
                and 3D Reconstructions, SIAM REVIEW (46) 518--545, 2004
 \end{thebibliography}
 
-
 \end{multicols}
 \end{frame}
-
-
 \end{document}
